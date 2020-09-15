@@ -1,1 +1,15 @@
-<button id="back-btn" class="back-btn">Go Back</button>
+{{#with experience}}
+<h1>{{title}}</h1>
+<div class="container">
+  <img src="{{pictureUrl}}" alt="picture">
+  <p>{{user}}</p>
+  <p>{{description}}</p>
+  <p>{{street}}</p>
+  <p>{{number}}</p>
+  <p>{{zipCode}}</p>
+  <p>{{city}}</p>
+  <p>{{country}}</p>
+</div>
+<button>Submit</button>
+<a href="/dashboard" id="back-btn" class="back-btn">Go Back</a>
+{{/with}}
