@@ -33,7 +33,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 // uncomment below when indexRouter contains module export
-//app.use('/', indexRouter);
+
 app.use('/', authRouter);
 
 // Express View engine setup
