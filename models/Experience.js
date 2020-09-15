@@ -7,7 +7,10 @@ const experienceSchema = new Schema({
     type: String,
     required: true,
   },
-  user: String,
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
   description: {
     type: String,
     required: true,

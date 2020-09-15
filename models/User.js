@@ -15,7 +15,11 @@ const userSchema = new Schema({
     type: String,
     enum: ['user', 'admin'],
     default: 'user'
-  }
+  },
+  experiences: [{
+    type: Schema.Types.ObjectId,
+    ref: "Experience"
+  }]
 });
 
 const User = mongoose.model('User', userSchema);
