@@ -9,18 +9,24 @@ router.get('/inputForm', (req, res, next) => {
 });
 
 
-router.post("/inputForm", (req, res, next) => {
-  const { title, description, address } = req.body;
+router.post("/experience", (req, res, next) => {
+  const { title, description, street, number, zipCode, city, country } = req.body;
+
+  let address = {
+    street: street,
+    number: number,
+    zipCode: zipCode,
+    city: city,
+    country: country,
+  }
 
   Experience.create({
     title: title,
     description: description, 
     address: address,
-  })
-
-  .then((inputForm) => {
-    console.log(`New experience was created: ${inputForm}`);
-    res.redirect(`/inputForm/${inputForm._id}`);
+  }).then((newExperience) => {
+    console.log(`New experience was created: ${newExperience}`);
+    res.redirect(`/experience/${newExperience._id}`);
     // res.redirect(`/dashboard`);
 
   })
