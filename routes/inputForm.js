@@ -1,6 +1,6 @@
 // const router = require("./landing");
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const Experience = require('../models/Experience');
 const User = require('../models/User');
 
@@ -29,10 +29,10 @@ router.post("/experience", (req, res, next) => {
     res.redirect(`/experience/${newExperience._id}`);
     // res.redirect(`/dashboard`);
 
-  })
-  .catch((error) => {
-    next(error);
-  });
+    })
+    .catch((error) => {
+      next(error);
+    });
 });
 
 module.exports = router;

@@ -1,10 +1,18 @@
-  <nav class="container">
-    <a href = "/signup" id="signup-btn" class="signup-btn">Signup</a>
-    <a href="/login" id="login-btn" class="login-btn">Login</a>
-  </nav>
+<nav class="container">
+  <a href="/signup" id="signup-btn" class="signup-btn">Signup</a>
+  <a href="/login" id="login-btn" class="login-btn">Login</a>
+</nav>
 
 <div class="overview-container">
 <p>Title</p>
 <p>Description</p>
 <a href = "/landing" id="main-pg" class="main-pg">Back to Main Page</a>
 </div>
+
+
+{{#each experienceList}}
+<p>
+  <a href="/dashboard/{{_id}}">{{ title }}</a>
+  <a href="/details/{{_id}}">See more</a>
+</p>
+{{/each}}
