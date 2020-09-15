@@ -22,6 +22,9 @@ mongoose
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
+const indexRouter = require('./routes/index.routes');
+const authRouter = require('./routes/auth.routes');
+
 const app = express();
 
 // Middleware Setup
@@ -29,6 +32,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+// uncomment below when indexRouter contains module export
+//app.use('/', indexRouter);
+app.use('/', authRouter);
 
 // Express View engine setup
 
@@ -55,9 +61,11 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // app.use('/', index);
 
 const landing = require('./routes/landing');
+console.log(typeof landing)
 app.use('/', landing);
 
 const overview = require('./routes/overview');
+console.log(typeof overview)
 app.use('/', overview);
 
 
