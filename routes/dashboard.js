@@ -4,9 +4,9 @@ const  Experience = require('../models/Experience');
 const User = require('../models/User')
 
 /* GET home page */
-router.get('/overview', (req, res, next) => {
-  console.log("here overview route")
-  res.render('overview');
+router.get('/dashboard', (req, res, next) => {
+  console.log("here dashboard route")
+  res.render('dashboard');
   // res.redirect('/signup');
 });
 
