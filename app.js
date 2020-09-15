@@ -22,8 +22,7 @@ mongoose
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
-const indexRouter = require('./routes/index.routes');
-const authRouter = require('./routes/auth.routes');
+
 
 const app = express();
 
@@ -32,9 +31,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-// uncomment below when indexRouter contains module export
 
-app.use('/', authRouter);
+
+// app.use('/', authRouter);
 
 // Express View engine setup
 
@@ -71,6 +70,9 @@ app.use('/', inputForm);
 
 const detailsPage = require('./routes/detailsPage');
 app.use('/', detailsPage);
+
+const auth = require('./routes/auth.routes');
+app.use('/', auth);
 
 
 module.exports = app;

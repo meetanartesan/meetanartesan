@@ -8,4 +8,7 @@ const User = require('../models/User')
   res.render('landing');
 });
 
+
+
+
 module.exports = router;

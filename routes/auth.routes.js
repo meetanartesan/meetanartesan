@@ -1,12 +1,70 @@
-// routes/auth.routes.js
-const mongoose = require('mongoose');
+const express = require('express');
+const router = express.Router();
+const bcryptjs = require('bcryptjs');
 
-const { Router } = require('express');
-const router = new Router();
+const Experience = require('../models/Experience');
+const User = require('../models/User')
+
+router.get('/login', (req, res) => res.render('authentication/login'));
+
+router.post('/login', (req, res, next) => {
+  console.log('The form data: ', req.body);
+
+  const { username, password } = req.body;
+  
+  if (username === '' || password === '') {
+    res.render('authentication/login', {
+      errorMessage: 'Please enter both, email and password to login.'
+    });
+    return;
+  }
+ 
+  User.findOne({ username })
+    .then(user => {
+      if (!user) {
+        res.render('authentication/login', { errorMessage: 'Username is not registered. Try with other username.' });
+        return;
+      } else if (bcryptjs.compareSync(password, user.password)) {
+        res.redirect('/dashboard');
+      } else {
+        res.render('authentication/login', { errorMessage: 'Incorrect password.' });
+      }
+    })
+    .catch(error => next(error));
+});
 
 // .get() route ==> to display the signup form to users
-router.get('/signup', (req, res) => res.render('auth/signup'));
+router.get('/signup', (req, res) => res.render('authentication/signup'));
 
 // .post() route ==> to process form data
+router.post('/signup', (req, res, next) => {
+  console.log('The form data: ', req.body);
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+    res.render('authentication/signup', { errorMessage: 'All fields are mandatory. Please provide your username, email and password.' });
+    return;
+  }
+
+  const saltRounds = 10;
+  bcryptjs
+    .genSalt(saltRounds)
+    .then(salt => bcryptjs.hash(password, salt))
+    .then(hashedPassword => {
+      return User.create({
+        // username: username
+        username,
+        // passwordHash => this is the key from the User model
+        //     ^
+        //     |            |--> this is placeholder (how we named returning value from the previous method (.hash()))
+        password: hashedPassword
+      });
+    })
+    .then(userFromDB => {
+      console.log('Newly created user is: ', userFromDB);
+      res.redirect("/login")
+    })
+    .catch(error => next(error));
+});
 
 module.exports = router;
