@@ -57,18 +57,20 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 
-// const index = require('./routes/index');
-// app.use('/', index);
+
 
 const landing = require('./routes/landing');
 console.log(typeof landing)
 app.use('/', landing);
 
-const overview = require('./routes/overview');
-console.log(typeof overview)
-app.use('/', overview);
+const dashboard = require('./routes/dashboard');
+app.use('/', dashboard);
 
+const inputForm = require('./routes/inputForm');
+app.use('/', inputForm);
 
+const detailsPage = require('./routes/detailsPage');
+app.use('/', detailsPage);
 
 
 module.exports = app;
