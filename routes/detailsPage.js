@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const Experience = require('../models/Experience');
 
 
@@ -7,9 +7,13 @@ const Experience = require('../models/Experience');
 router.get('/experience/:experienceId', (req, res, next) => {
   let experienceId = req.params.experienceId;
   Experience.findById(experienceId).then(experience => {
-    res.render('detailsPage', {experience: experience});
+    res.render('detailsPage', {
+      experience: experience
+    });
   })
 });
+
+
 
 module.exports = router;
 
