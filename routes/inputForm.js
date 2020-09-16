@@ -4,15 +4,20 @@ const router = express.Router();
 const Experience = require('../models/Experience');
 const User = require('../models/User');
 
+const {
+  userCheck
+} = require('./middleware')
+
+
 const fileUploader = require('../configs/cloudinary.config');
 
 
-router.get('/inputForm', (req, res, next) => {
+router.get('/inputForm', userCheck, (req, res, next) => {
   res.render('inputForm');
 });
 
 
-router.post("/experience", (req, res, next) => {
+router.post("/experience", fileUploader.single('image'), (req, res, next) => {
   const {
     title,
     description,
@@ -35,6 +40,7 @@ router.post("/experience", (req, res, next) => {
       title: title,
       description: description,
       address: address,
+      imageUrl: req.file.path
     }).then((newExperience) => {
       console.log(`New experience was created: ${newExperience}`);
       res.redirect(`/experience/${newExperience._id}`);

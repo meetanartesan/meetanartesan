@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 const experienceSchema = new Schema({
   imageUrl: String,
-  timestamps: true,
   title: {
     type: String,
     required: true,
