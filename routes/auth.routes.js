@@ -5,9 +5,10 @@ const bcryptjs = require('bcryptjs');
 const Experience = require('../models/Experience');
 const User = require('../models/User')
 
-router.get('/login', (req, res) => res.render('authentication/login'));
+
 
 router.post('/login', (req, res, next) => {
+  console.log('SESSION =====> ', req.session);
   console.log('The form data: ', req.body);
 
   const { username, password } = req.body;
@@ -23,9 +24,14 @@ router.post('/login', (req, res, next) => {
     .then(user => {
       if (!user) {
         res.render('authentication/login', { errorMessage: 'Username is not registered. Try with other username.' });
+        console.log("renders login page");
         return;
       } else if (bcryptjs.compareSync(password, user.password)) {
-        res.redirect('/dashboard');
+        
+        req.session.currentUser = user;
+        res.redirect('/userProfile');
+       //res.render('users/userProfile', { user });
+       console.log("redirect to userProfile")
       } else {
         res.render('authentication/login', { errorMessage: 'Incorrect password.' });
       }
@@ -33,8 +39,14 @@ router.post('/login', (req, res, next) => {
     .catch(error => next(error));
 });
 
+router.get('/login', (req, res) => res.render('authentication/login'));
+
 // .get() route ==> to display the signup form to users
 router.get('/signup', (req, res) => res.render('authentication/signup'));
+
+router.get('/userProfile', (req, res) => {
+  res.render('users/userProfile', { userInSession: req.session.currentUser });
+});
 
 // .post() route ==> to process form data
 router.post('/signup', (req, res, next) => {
@@ -52,11 +64,8 @@ router.post('/signup', (req, res, next) => {
     .then(salt => bcryptjs.hash(password, salt))
     .then(hashedPassword => {
       return User.create({
-        // username: username
+
         username,
-        // passwordHash => this is the key from the User model
-        //     ^
-        //     |            |--> this is placeholder (how we named returning value from the previous method (.hash()))
         password: hashedPassword
       });
     })
