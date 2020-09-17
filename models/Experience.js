@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const experienceSchema = new Schema({
-  pictureUrl: String,
+  imgName: String,
+  imgPath: String,
+  imgPublicId: String,
   title: {
     type: String,
     required: true,
