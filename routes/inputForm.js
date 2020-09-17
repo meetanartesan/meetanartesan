@@ -16,6 +16,9 @@ router.get('/inputForm', userCheck, (req, res, next) => {
   res.render('inputForm');
 });
 
+// router.get('/inputForm', userCheck, (req, res, next) => {
+//   res.render('inputForm');
+//    });
 
 router.post("/experience", fileUploader.single('image'), (req, res, next) => {
   console.log('experience');
