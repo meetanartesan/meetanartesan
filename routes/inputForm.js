@@ -25,6 +25,9 @@ router.post("/experience", fileUploader.single('image'), (req, res, next) => {
   let imgName = req.file.originalname
   let imgPath = req.file.url
   let imgPublicId = req.file.public_id
+  console.log({
+    imgPublicId
+  })
   const {
     title,
     description,
