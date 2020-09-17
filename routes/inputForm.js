@@ -16,12 +16,18 @@ router.get('/inputForm', userCheck, (req, res, next) => {
   res.render('inputForm');
 });
 
+// router.get('/inputForm', userCheck, (req, res, next) => {
+//   res.render('inputForm');
+//    });
 
 router.post("/experience", fileUploader.single('image'), (req, res, next) => {
   console.log('experience');
   let imgName = req.file.originalname
   let imgPath = req.file.url
   let imgPublicId = req.file.public_id
+  console.log({
+    imgPublicId
+  })
   const {
     title,
     description,
