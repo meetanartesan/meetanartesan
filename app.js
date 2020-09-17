@@ -39,7 +39,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 
-
 // app.use('/', authRouter);
 
 // Express View engine setup
@@ -60,6 +59,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // default value for title local
 // app.locals.title = 'Authentic Experiences';
+
 
 
 
