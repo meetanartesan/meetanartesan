@@ -3,15 +3,18 @@
     <h2>Signup</h2>
   </div>
   <div class="signup-input-container">
-    <form action="/signup" method="POST">
-      <label for="input-username">Username</label>
-      <input type="text" id="input-username" name="username" placeholder="Your username" class="login-input-form" />
-
-      <label for="input-password">Password</label>
-      <input type="password" name="password" id="input-password" placeholder="********" />
-
-      <button type="submit">Create account</button>
-
+    <form action="/signup" method="POST" class="signup-input-form">
+      <div class="input-div">
+        {{!-- <label for="input-username">Username</label> --}}
+        <input class="signup-input" type="text" placeholder="username" name="username" autocomplete="off" required/>
+      </div>
+      <div class="input-div">
+        {{!-- <label for="input-password">Password</label> --}}
+        <input class="signup-input" type="password" placeholder="password" name="password" autocomplete="off" required/>
+      </div>
+      <div class"signup-btn-div">
+        <button class="signup-btn"type="submit">Create account</button>
+      </div>
       {{!-- error message will be added here --}}
     </form>
   </div>
