@@ -1,11 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 
 a {
-  color: green; }
+  color: green;
+  text-decoration: none;
+}
 
 body {
+  padding: 50px;
+  font: 14px "DM Sans", sans-serif;
   box-sizing: border-box;
-  max-width: 100vw; }
+  max-width: 100vw; 
+  
+}
 
 input {
   border: none;
@@ -13,62 +19,125 @@ input {
 
 // body::-webkit-scrollbar {
 //   width: 1em; }
+// * {
+//   padding: 0; 
+//   margin: 0; 
+//   font-family: "DM Sans", sans-serif;
+// }
+body::-webkit-scrollbar {
+  width: 1em; }
 
-// body::-webkit-scrollbar-track {
-//   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
 
-// body::-webkit-scrollbar-thumb {
-//   background-color: darkgrey;
-//   outline: 1px solid slategrey; }
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey; }
 
 .landing-container {
     width: 100%;
     overflow-x: hidden;
     height: 80vh;
-    background-image: url(/images/);
+    background-image: url(/images/quino-al-zjL2nfIoq3U-unsplash.jpg);
     background-position: center;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    font-family: Courier;
+}
+
+.landing-input-container {
+  display: flex; 
+  font-size: 25px;
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar-link {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.6);
   padding-bottom: 0em;
+  padding: 0 10 0 10;
   text-decoration: none;
-
   font-size: 1.3rem;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.6);
     font-family: "DM Sans", sans-serif;
     font-style: normal;
     line-height: 1.3;
+    margin-right: 7px;
   }
 
-
- 
-.navbar-link:hover {
+.navbar-container {  
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.6);
+  padding-bottom: 0em;
+  padding: 0 10 0 10;
   text-decoration: none;
-  color: green; }
-
-.experience-container {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.17);
-    margin-top: 3.0rem;
-    margin-bottom: 1.1rem;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 0.7);
+  font-size: 1.3rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
     font-family: "DM Sans", sans-serif;
     font-style: normal;
     line-height: 1.3;
-    letter-spacing: 0.04em;
-    text-align: center;
-    padding-bottom: 1rem;
 }
 
+.navbar-container:hover {
+  text-decoration: none;
+  color: green; }
+
+.navbar-link:hover {
+  text-decoration: none;
+  color: green;
+}
+
+.experience-container {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.17);
+  margin-top: 3.0rem;
+  margin-bottom: 1.1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.landing-logo {
+  display: flex;
+  color:  whitesmoke;
+  text-align: center;
+  padding: 0, 10, 0, 10;
+  width: 50%
+}
+
+.input-form {
+  font-size: 20px; 
+  font-weight: bold;
+  color: green;
+  }
+.browse {
+  font-size: 20px;
+  font-weight: bold;
+}
+.content {
+  display:flex;
+  color:rgba(0, 0, 0, 0.6);
+  padding-block: 10, 20, 10, 20;
+}
+
+.description-features {
+font-family: 'Courier New', Courier, monospace;
+}
+
+.description-about-us {
+  font-family: 'Courier New', Courier, monospace;
+  }
 /* .landing-logo {
   
 } */

@@ -1,15 +1,17 @@
-<nav class="navbar-container">
-  <a href="/signup" id="signup-btn" class="signup-btn">Signup</a>
-  <a href="/login" id="login-btn" class="login-btn">Login</a>
+<nav class="navbar-container navbar-link-home">
+  <a class="navbar-link" href="/signup">Signup</a>
+  <a class="navbar-link" href="/login">Login</a>
 </nav>
 
-<div class="overview-container">
+{{!-- <div class="overview-container">
   <p>Title</p>
   <p>Description</p>
+</div> --}}
+<div class="content">
+<h2>Browse experiences</h2><br>
+<p> Here you can find an an overview of every artisan on our site </p>
 </div>
 
-<h2>Browse experiences</h2>
-<p> Here you can find an an overview of every artisan on our site </p>
 
 {{#each experienceList}}
 
@@ -26,6 +28,6 @@
 
 {{/each}}
 
-<a href="/inputForm">Share your own Experience</a>
+<a href="/inputForm" id"inputForm" class="input-form">Share your own Experience</a> 
 
-<a href = "/landing" id="main-pg" class="main-pg">Back to Main Page</a>
+<a href="/landing" id="main-pg" class="main-pg">Back to Main Page</a>
