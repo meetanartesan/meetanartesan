@@ -80,7 +80,6 @@ body::-webkit-scrollbar-thumb {
   color: green; }
 
 .experience-container {
-  background-color: #f3e9d2;
   border-bottom: 1px solid rgba(0, 0, 0, 0.17);
   margin-top: 3.0rem;
   margin-bottom: 1.1rem;
@@ -216,7 +215,8 @@ h5 {
   justify-content: space-evenly;
   align-items: center;
   border-top: 0.5px solid #a6adb4;
-  padding: 10px 0; } */
+  padding: 10px 0; }
+
 #signup {
   display: flex;
   flex-direction: column;
