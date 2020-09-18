@@ -1,18 +1,20 @@
-{{#each experience}}
-<div>
-
-  <img src="{{imgPath}}" alt="{{imgName}}">
-  <div>
+{{#with experience}}
+<div class="each-experience">
     <h5>{{title}}</h5>
-    <p>{{description}}</p>
-    <p>{{user}}</p>
-    <p>{{address.street}}</p>
+    <img class="image" src="{{imgPath}}" alt="{{imgName}}">
+     <div class="description-experiences"></div>
+    <br>
+     <p>{{address.street}}</p><span>
     <p>{{address.number}}</p>
     <p>{{address.zipCode}}</p>
     <p>{{address.city}}</p>
-    <p>{{address.country}}</p>
+    <p>{{address.country}}</p></span>
+     <br>
+    <p>{{description}}</p>
+    <p>{{user}}</p>
+  </div>
   </div>
 
-  {{/each}}
+  {{/with}}
 
-  <a href="/dashboard">Go Back</a> cd
+  <a class="go-back" href="/dashboard">Go Back</a> 
